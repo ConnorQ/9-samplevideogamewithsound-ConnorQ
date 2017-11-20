@@ -2,7 +2,7 @@
 --
 -- level1_screen.lua
 -- Created by: Connor Quinlan
--- Date: Month Day, Year
+-- Date: Nov 17, 2017
 -- Description: This is the level 1 screen of the game.
 -----------------------------------------------------------------------------------------
 

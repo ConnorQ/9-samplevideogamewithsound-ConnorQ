@@ -2,7 +2,7 @@
 --
 -- main.lua
 -- Created by: Connor Quinlan
--- Date: Nov 16, 2017
+-- Date: Nov 17, 2017
 -- Description: This calls the splash screen of the app to load itself.
 -----------------------------------------------------------------------------------------
 

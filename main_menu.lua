@@ -2,7 +2,7 @@
 --
 -- main_menu.lua
 -- Created by: Connor Quinlan
--- Date: Month Day, Year
+-- Date: Nov 17, 2017
 -- Description: This is the main menu, displaying the credits, instructions & play buttons.
 -----------------------------------------------------------------------------------------
 
@@ -57,7 +57,17 @@ end
 
 -- Creating Transition to Level1 Screen
 local function Level1ScreenTransition( )
-    composer.gotoScene( "level1_screen", {effect = "zoomInOutFade", time = 1000})
+
+    -- Pre-Setting Transition Options
+    local transitionOptions = (
+    {
+        effect = "crossFade",
+        time = 1000
+    })
+
+    -- Creating Transition function
+    composer.gotoScene( "level1_screen", transitionOptions )
+
 end    
 
 -- INSERT LOCAL FUNCTION DEFINITION THAT GOES TO INSTRUCTIONS SCREEN 

@@ -2,7 +2,7 @@
 --
 -- splash_screen.lua
 -- Created by: Connor Quinlan
--- Date: Month Day, Year
+-- Date: Nov 17, 2017
 -- Description: This is the splash screen of the game. It displays the 
 -- company logo that...
 -----------------------------------------------------------------------------------------
@@ -84,7 +84,17 @@ end
 
 -- The function that will go to the main menu 
 local function gotoMainMenu()
-    composer.gotoScene( "main_menu" )
+
+    -- Pre-Setting Transition Options
+    local transitionOptions = (
+    {
+        effect = "zoomOutIn",
+        time = 1000
+    })
+
+    -- Creating Transition function
+    composer.gotoScene( "main_menu", transitionOptions )
+
 end
 
 -----------------------------------------------------------------------------------------
@@ -139,6 +149,9 @@ function scene:show( event )
         
     end
 
+    -- Associating display objects with this scene 
+    sceneGroup:insert( logo )
+
 end --function scene:show( event )
 
 -----------------------------------------------------------------------------------------
@@ -164,9 +177,6 @@ function scene:hide( event )
         
         -- stop the jungle sounds channel for this screen
         audio.stop(jungleSoundsChannel)
-
-        -- hide logo
-        logo.isVisible = false
 
     end
 
