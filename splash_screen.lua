@@ -27,9 +27,6 @@ local scene = composer.newScene( sceneName )
 -- create logo image
 local logo
 
-local jungleSounds = audio.loadSound("Sounds/animals144.mp3")
-local jungleSoundsChannel
-
 -- Flags
 local moveDone = false
 local moveBackDone = false
@@ -138,8 +135,6 @@ function scene:show( event )
     -----------------------------------------------------------------------------------------
 
     elseif ( phase == "did" ) then
-        -- start the splash screen music
-        jungleSoundsChannel = audio.play(jungleSounds )
 
         -- Call the moveBeetleship function as soon as we enter the frame.
         Runtime:addEventListener("enterFrame", MoveLogo)
@@ -174,9 +169,6 @@ function scene:hide( event )
 
     -- Called immediately after scene goes off screen.
     elseif ( phase == "did" ) then
-        
-        -- stop the jungle sounds channel for this screen
-        audio.stop(jungleSoundsChannel)
 
     end
 

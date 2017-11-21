@@ -36,27 +36,39 @@ local bkg_image
 local playButton
 local creditsButton
 local instructionsButton
+local alienSound = audio.loadSound("Sounds/aliensound.mp3")
+local alienSoundChannel
 
 -----------------------------------------------------------------------------------------
 -- LOCAL FUNCTIONS
 -----------------------------------------------------------------------------------------
 
 -- Creating Transition Function to Credits Page
-local function CreditsTransition( )       
+local function CreditsTransition( )
+
+    alienSoundChannel = audio.stop(alienSound)       
+
     composer.gotoScene( "credits_screen", {effect = "flipFadeOutIn", time = 500})
+
 end 
 
 -----------------------------------------------------------------------------------------
 
 -- Creating Translation Fuction to Instructions
-local function InstructionsTransition( )       
+local function InstructionsTransition( )
+
+    alienSoundChannel = audio.stop(alienSound) 
+      
     composer.gotoScene( "credits_screen", {effect = "flipFadeOutIn", time = 500})
+
 end 
 
 -----------------------------------------------------------------------------------------
 
 -- Creating Transition to Level1 Screen
 local function Level1ScreenTransition( )
+
+    alienSoundChannel = audio.stop(alienSound)
 
     -- Pre-Setting Transition Options
     local transitionOptions = (
@@ -81,6 +93,9 @@ function scene:create( event )
 
     -- Creating a group that associates objects with the scene
     local sceneGroup = self.view
+
+    -- Begin sound
+    alienSoundChannel = audio.play(alienSound)
 
     -----------------------------------------------------------------------------------------
     -- BACKGROUND IMAGE & STATIC OBJECTS
@@ -135,6 +150,8 @@ function scene:create( event )
             -- When the button is released, call the Credits transition function
             onRelease = CreditsTransition
         } ) 
+
+    -----------------------------------------------------------------------------------------
     
     -- Creating Credits Button
     instructionsButton = widget.newButton( 
