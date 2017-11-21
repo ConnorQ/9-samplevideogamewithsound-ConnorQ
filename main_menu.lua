@@ -94,9 +94,6 @@ function scene:create( event )
     -- Creating a group that associates objects with the scene
     local sceneGroup = self.view
 
-    -- Begin sound
-    alienSoundChannel = audio.play(alienSound)
-
     -----------------------------------------------------------------------------------------
     -- BACKGROUND IMAGE & STATIC OBJECTS
     -----------------------------------------------------------------------------------------
@@ -185,6 +182,9 @@ end -- function scene:create( event )
 
 -- The function called when the scene is issued to appear on screen
 function scene:show( event )
+
+        -- Begin sound
+    alienSoundChannel = audio.play(alienSound)
 
     -- Creating a group that associates objects with the scene
     local sceneGroup = self.view
